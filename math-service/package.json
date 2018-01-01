@@ -1,0 +1,13 @@
+{
+  "name": "senecajs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "seneca": "^3.4.3"
+  }
+}

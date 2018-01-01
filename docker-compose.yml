@@ -1,0 +1,23 @@
+version: "3"
+services:
+  math_service:
+    image: math-service
+    ports:
+      - "1337:1337"
+  user_service:
+    image: user-service
+    ports:
+      - "1338:1338"
+    depends_on:
+      - "mongodb"
+  web_service:
+    image: web-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "math_service"
+      - "user_service"
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
