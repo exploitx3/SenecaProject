@@ -36,3 +36,16 @@ Calling localhost on port 8080:
 Run services from Docker images:
  * In main directory ./SenecaProject run:
     * docker-compose up
+
+Run with minikube:
+ * minikube start --kubernetes-version=v1.8.0  --extra-config=apiserver.ServiceNodePortRange=1-50000
+ * minikube addons enable kube-dns
+ * "Create the mongodb directory in the vm"
+   * minikube ssh
+   * sudo mkdir /mnt/data
+ * "Create the kubernetes volumes"
+   * kubectl create -f ./kubernetes-templates/mongodb-volume.yml --validate
+Debug DNS:
+ * kubectl run busybox --image=busybox --command -- sleep 3600
+ * kubectl exec -ti $POD_NAME -- nslookup math-service.api.default.svc.cluster.local
+ * "Or you can try on your own" kubectl run -i --tty --image busybox dns-test --restart=Never --rm /bin/sh 
