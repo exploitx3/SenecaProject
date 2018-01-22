@@ -49,3 +49,11 @@ Debug DNS:
  * kubectl run busybox --image=busybox --command -- sleep 3600
  * kubectl exec -ti $POD_NAME -- nslookup math-service.api.default.svc.cluster.local
  * "Or you can try on your own" kubectl run -i --tty --image busybox dns-test --restart=Never --rm /bin/sh 
+ 
+Terraform: 
+ * Generate terraform ssh key-pair
+   * ssh-keygen -t rsa
+ * When executing terraform(terraform apply) enter keypair name and keypair path
+   * Example:
+     * terraform
+     * ~/.ssh/terraform.pub
