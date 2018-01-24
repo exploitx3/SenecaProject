@@ -45,6 +45,13 @@ Run with minikube:
    * sudo mkdir /mnt/data
  * "Create the kubernetes volumes"
    * kubectl create -f ./kubernetes-templates/mongodb-volume.yml --validate
+   
+ * "Create the kubernetes database"
+   * kubectl create -f ./kubernetes-templates/database-templates.yml --validate
+   
+ * "Create the kubernetes app"
+   * kubectl create -f ./kubernetes-templates/kubernetes-app-template.yml --validate
+   
 Debug DNS:
  * kubectl run busybox --image=busybox --command -- sleep 3600
  * kubectl exec -ti $POD_NAME -- nslookup math-service.api.default.svc.cluster.local
