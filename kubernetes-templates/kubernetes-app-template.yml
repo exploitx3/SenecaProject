@@ -96,10 +96,11 @@ items:
            app: web-service
        spec:
          containers:
-         - image: gapostolov/web-service
+         - image: gapostolov/web-service:latest
            name: web-service
            ports:
            - containerPort: 8080
+           imagePullPolicy: Always
          restartPolicy: Always
  - apiVersion: v1
    kind: Service
